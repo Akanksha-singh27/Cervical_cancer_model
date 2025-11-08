@@ -1,105 +1,48 @@
-# FloatChat — Conversational Ocean Data Explorer (Prototype)
+# Cervical Cancer Risk Prediction (Supervised ML)
 
-FloatChat is a browser-based frontend prototype that demonstrates how ARGO oceanographic data could be explored through a conversational interface.
+This project develops a supervised machine learning pipeline to predict cervical cancer risk based on medical features such as sexual health history, contraceptives, smoking, and screening results.
 
-This project was originally built for hackathon pitching — showing how scientific marine data (temperature / salinity / depth readings from ARGO floats) can be democratized and made accessible through chat-based queries + visual dashboards.
-
----
-
-## 👀 Why FloatChat?
-
-Oceanographic research data is massive, complex, and locked behind specialized tools.  
-FloatChat imagines a future where:
-
-- you don’t need a scientific background to explore ocean data  
-- you can just *talk* to the ocean dataset like ChatGPT  
-- the system automatically visualizes insights for you  
-
-This prototype shows the UI, UX and visualization concepts for that experience.
+The aim is to demonstrate how ML can support early risk stratification — especially useful in areas with limited screening access.
 
 ---
 
-## 🌟 Key Features (Current Prototype)
+## Key Features
 
-| Feature | Description |
-|---------|-------------|
-| Conversational UI | Chat interface designed for marine data Q&A |
-| Dashboard Concepts | mock graphs for float trajectories, depth-time analysis |
-| Responsive UI | mobile + tablet + desktop friendly |
-| Modern UX | ocean gradient design system & smooth UI transitions |
-| Hackathon-ready narrative | clearly shows the problem → vision → UI → value |
-
-> Note: This version is **frontend-only**.  
-> ARGO data & responses are simulated.
+- Dataset from Kaggle: "Cervical Cancer Risk Classification"
+- Preprocessing: replaced "?" with NaN, numeric conversion, mode/median imputation
+- Class balancing handled using **SMOTE** (applied correctly only on training data)
+- Multiple ML models tested (Logistic Regression, Random Forest, SVM, XGBoost, Gradient Boosting, KNN)
+- Feature visualization (histograms, correlation matrix)
+- Model comparison table + confusion matrices
 
 ---
 
-## 🧠 Proposed AI Workflow (for future version)
+## Best Model Results
 
-- ingest ARGO NetCDF / CSV float datasets  
-- store float embeddings in vector DB  
-- semantic RAG based retrieval from dataset  
-- LLM produces narrative insights + chart instructions  
-- frontend renders the visualization automatically
+| Model | Accuracy | Precision | Recall | F1-Score |
+|-------|----------:|----------:|--------:|--------:|
+| Logistic Regression | 96.38% | 96.49% | 96.38% | 96.43% |
 
-This shows future potential direction for research product or SaaS.
+(Logistic Regression performed best overall)
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
-| Frontend | HTML, CSS, JavaScript |
-| Charts | Chart.js |
-| Data Status | mock sample JSON data |
-| ML / API | not implemented yet (planned RAG backend) |
+| Component | Library |
+|----------|---------|
+| Programming | Python |
+| ML Framework | scikit-learn |
+| Data Analysis | pandas, numpy |
+| Visualization | matplotlib, seaborn |
+| Environment | Google Colab |
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```bash
-/index.html            -> landing page
-/features.html         -> feature showcase
-/aboutpage.html        -> ARGO intro + product story
-/chat.html             -> main chat interface screen
-/dashboard.html        -> visual analytics section
-/dashboard_app.js      -> chart logic + mock ARGO data
-/dashboard_style.css   -> dashboard styling
-/style.css             -> global styling
-```
-
----
-
-## ▶️ Run Locally
-
-```bash
-git clone https://github.com/Akanksha-singh27/Akanksha-Floatchat
-```
-
-Then open:
-
-```bash
-index.html
-```
-
-in your browser.
-
----
-
-## 🚀 Future Roadmap
-
-- integrate real ARGO APIs
-- build backend for RAG retriever
-- conversational querying with LLM
-- persistent user sessions + saved chats
-- export visual reports for researchers
-
----
-
-## 👩‍💻 Author
-
-**Akanksha Singh**
-
-GitHub → [@Akanksha-singh27](https://github.com/Akanksha-singh27)
+Cervical_cancer_model/
+│
+├── Cervical_cancer_prediction_supervised_model.ipynb    # main notebook (ML project)
+└── README.md                                            # documentation
